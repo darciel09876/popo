@@ -1,0 +1,511 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    list-style: none;
+    font-family: "Poppins", sans-serif;
+}
+
+body {
+    color: #fff;
+    font-size: 16px;
+    overflow: hidden;
+}
+
+
+
+header {
+    position: fixed;
+    width: 80vw;
+    left: 50%;
+    transform: translateX(-50%);
+    display: grid;
+    align-items: center;
+    grid-template-columns: 1fr 600px;
+    /* Ajuste das colunas da grid */
+    gap: 10%;
+    /* Corrigido para remover o espaço extra */
+    z-index: 2;
+
+    & img {
+        width: 250px;
+    }
+
+    & nav {
+        & ul{
+            display: grid;
+            grid-template-columns: repeat(3, 200px);
+        }
+    }
+
+    & #mobile_btn{
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+        width: 70%;
+    }
+
+    & #mobileresponsive{
+        display: none;
+    }
+}
+
+
+
+
+
+section {
+    background-image: radial-gradient(#470964, #791fd3);
+    height: 100vh;
+    position: relative;
+
+    & .lista {
+        width: 70vw;
+        height: 100%;
+        margin: auto;
+        position: relative;
+
+        & .item {
+            position: absolute;
+            inset: 0;
+
+            & .carro_img {
+                position: absolute;
+                top: 50%;
+                transform: translateY(-50%);
+                width: 70%;
+
+                & img {
+                    width: 100%;
+                    transform: rotate(-20deg);
+                }
+            }
+
+            & .conteudo {
+                position: absolute;
+                right: 100px;
+                width: 70%;
+                height: 100%;
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                align-items: end;
+                gap: 20px;
+
+                & .informacao {
+                    font-weight: bold;
+                }
+
+                & h2 {
+                    font-size: 8rem;
+                    line-height: 1em;
+                    font-family: "League Gothic", sans-serif;
+                }
+
+                & .descricao {
+                    color: #d9d9d9;
+                    font-size: 12px;
+                    text-align: right;
+                    max-width: 400px;
+                }
+
+                & .botao_saiba_mais {
+                    border-radius: 30px;
+                    height: 35px;
+                    width: 120px;
+                    text-transform: uppercase;
+                    border: 2px solid #791fd3;
+                    background-color: rgb(184, 134, 11);
+                    color: black;
+                    cursor: pointer;
+                    font-weight: bold;
+                    font-family: "League Gothic", sans-serif;
+                }
+            }
+
+
+        }
+
+
+    }
+
+
+
+    .setas {
+        width: 70vw;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -25px);
+        display: flex;
+        justify-content: space-between;
+
+        & button:nth-child(1) {
+            & img {
+                transform: scale(-1);
+            }
+        }
+
+
+        & button {
+            top: 60%;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            border: none;
+            cursor: pointer;
+
+            & img {
+                width: 30px;
+                margin-top: 4px;
+            }
+
+            &:hover {
+                background-color: rgb(184, 134, 11);
+                cursor: pointer;
+            }
+        }
+    }
+
+    .indicadores {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translateX(-50%);
+        height: 200px;
+        width: 90vw;
+        display: flex;
+        flex-direction: column;
+        justify-content: end;
+        gap: 15px;
+
+        & .numeros {
+            font-size: 85px;
+        }
+
+        & ul {
+            display: flex;
+            gap: 10px;
+
+            & li {
+                background-color: rgb(184, 134, 11);
+                width: 50px;
+                height: 5px;
+                border-radius: 5px;
+                transition: .2s;
+            }
+
+            & .active {
+                background-color: #fff;
+            }
+        }
+
+    }
+}
+
+section {
+    & .lista {
+
+
+        & .item {
+            transform: translateX(100vw);
+            transition: 0.5s;
+
+            & .carro_img {
+                & img {
+                    transform: rotate(0);
+                    transition: 0.5s;
+                    transition-delay: 0.3s;
+                }
+            }
+
+            & .conteudo {
+
+                & .informacao,
+                h2,
+                .descricao,
+                .botao_saiba_mais {
+                    transform: translateX(200px);
+                    transition: 0.7s;
+                    transition-delay: 0.3s;
+                }
+
+                & h2 {
+                    transition-delay: 0.5s;
+                }
+
+                & .descricao {
+                    transition-delay: 0.7s;
+                }
+
+                & .botao_saiba_mais {
+                    transition-delay: 0.9s;
+                }
+            }
+        }
+
+        & .item.active {
+            transform: translateX(0);
+            transition: 0.5s;
+            opacity: 1;
+
+            & .carro_img {
+                & img {
+                    transform: rotate(-20deg);
+                }
+            }
+
+            & .conteudo {
+
+                & .informacao,
+                h2,
+                .descricao,
+                .botao_saiba_mais {
+                    transform: translateX(0);
+                }
+            }
+        }
+
+    }
+}
+
+@media screen and (max-width: 1000px) {
+
+    * {
+        overflow: hidden;
+    }
+
+    header {
+        
+
+        & #imagem_logo{
+            position: absolute;
+            top: 100%;
+            transform: translateY(100%);
+            width: 50%;
+        }
+
+        & #normal{
+            display: none;
+
+            & #mobile_btn{
+                display: block;
+            }
+        }
+
+        
+    }
+
+
+    section {
+        background-image: radial-gradient(#470964, #791fd3);
+    
+        & .lista {
+            width: 70vw;
+            height: 100%;
+            margin: auto;
+            position: relative;
+    
+            & .item {
+                position: absolute;
+    
+                & .carro_img {
+                    position: absolute;
+                    top: 25%;
+                    transform: translateY(-50%);
+                    width: 100%;
+    
+                    & img {
+                        width: 100%;
+                        transform: rotate(0deg)!important;
+                    }
+                }
+    
+                & .conteudo {
+                    position: relative;
+                    top: 25%;
+                    right: 10px;
+                    width: 90%;
+                    height: 100%;
+                    display: flex;
+                    flex-direction: column;
+                    justify-content: center;
+                    align-items: first baseline;
+                    gap: 10px;
+    
+                    & .informacao {
+                        font-weight: bold;
+                    }
+    
+                    & h2 {
+                        font-size: 5rem;
+                        line-height: 1em;
+                        font-family: "League Gothic", sans-serif;
+                    }
+    
+                    & .descricao {
+                        color: #d9d9d9;
+                        font-size: 12px;
+                        text-align: left;
+                        max-width: 400px;
+                    }
+    
+                    & .botao_saiba_mais {
+                        border-radius: 30px;
+                        height: 35px;
+                        width: 120px;
+                        text-transform: uppercase;
+                        border: 2px solid #791fd3;
+                        background-color: rgb(184, 134, 11);
+                        color: black;
+                        cursor: pointer;
+                        font-weight: bold;
+                        font-family: "League Gothic", sans-serif;
+                    }
+                }
+    
+    
+            }
+    
+    
+        }
+    
+    
+    
+        .setas {
+            width: 85vw;
+            position: absolute;
+            top: 40%;
+            left: 50%;
+            transform: translate(-50%, -25px);
+            display: flex;
+            justify-content: space-between;
+    
+            & button:nth-child(1) {
+                & img {
+                    transform: scale(-1);
+                }
+            }
+    
+    
+            & button {
+                top: 60%;
+                width: 50px;
+                height: 50px;
+                border-radius: 50%;
+                border: none;
+                cursor: pointer;
+    
+                & img {
+                    width: 30px;
+                    margin-top: 4px;
+                }
+    
+                &:hover {
+                    background-color: rgb(184, 134, 11);
+                    cursor: pointer;
+                }
+            }
+        }
+    
+        .indicadores {
+            position: absolute;
+            top: 20%;
+            left: 50%;
+            transform: translateX(-50%);
+            height: 170px;
+            width: 20vw;
+            display: flex;
+            flex-direction: column;
+            gap: 1px;
+    
+            & .numeros {
+                font-size: 50px;
+            }
+    
+            & ul {
+                display: flex;
+                gap: 10px;
+    
+                & li {
+                    background-color: rgb(184, 134, 11);
+                    width: 50px;
+                    height: 5px;
+                    border-radius: 5px;
+                    transition: .2s;
+                }
+    
+                & .active {
+                    background-color: #fff;
+                }
+            }
+    
+        }
+    }
+
+    section {
+        & .lista {
+    
+    
+            & .item {
+                transform: translateX(100vw);
+                transition: 0.5s;
+    
+                & .carro_img {
+                    & img {
+                        transform: rotate(0);
+                        transition: 0.5s;
+                        transition-delay: 0.3s;
+                    }
+                }
+    
+                & .conteudo {
+    
+                    & .informacao,
+                    h2,
+                    .descricao,
+                    .botao_saiba_mais {
+                        transform: translateX(200px);
+                        transition: 0.7s;
+                        transition-delay: 0.3s;
+                    }
+    
+                    & h2 {
+                        transition-delay: 0.5s;
+                    }
+    
+                    & .descricao {
+                        transition-delay: 0.7s;
+                    }
+    
+                    & .botao_saiba_mais {
+                        transition-delay: 0.9s;
+                    }
+                }
+            }
+    
+            & .item.active {
+                transform: translateX(0);
+                transition: 0.5s;
+                opacity: 1;
+    
+                & .carro_img {
+                    & img {
+                        transform: rotate(-20deg);
+                    }
+                }
+    
+                & .conteudo {
+    
+                    & .informacao,
+                    h2,
+                    .descricao,
+                    .botao_saiba_mais {
+                        transform: translateX(0);
+                    }
+                }
+            }
+    
+        }
+    }
+}
